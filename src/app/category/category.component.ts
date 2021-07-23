@@ -7,25 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  meals: any;
+  categories: any;
 
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.getMeals();
+    this.getCategories();
   }
   
+  public gfg = false;
   currentVal="";
 
   getVal(event:any): void{
     console.log('getVal', event.target.value);
     this.currentVal=event.target.value;
-    this.getMeals();
+    this.getCategories();
   }
 
-  getMeals(){
+  getCategories(){
     let response = this.httpClient.get<any>(`https://www.themealdb.com/api/json/v1/1/categories.php`);
-    response.subscribe((data)=>this.meals=data);
+    response.subscribe((data)=>this.categories=data);
 
   }
 

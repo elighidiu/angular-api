@@ -1,1 +1,16 @@
-<p>category works!</p>
+
+<div class="container my-5">
+
+    <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li ngbNavItem  *ngFor="let category of categories.categories">
+          <a ngbNavLink>  <h3>{{ category.strCategory }}</h3> </a>
+          <ng-template ngbNavContent> <div class="row">
+            <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 my-5"><p>{{ category.strCategoryDescription }} </p></div>
+            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 my-5"> <img src="{{category.strCategoryThumb}}" alt=""></div></div></ng-template>
+          
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav"></div>
+</div>
+
+
