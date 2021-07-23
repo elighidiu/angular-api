@@ -1,0 +1,33 @@
+        <input
+          type="text"
+          (change)="getVal($event)"
+        />
+    
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Meal
+            </th>
+            <th>
+                Origin
+            </th>
+            <th>
+                Category
+            </th>
+            <th>Instructions</th>
+        </tr>
+    </thead>
+    <tbody>
+         <!-- loool this meals.meals took me 2 hours and half!. my data in api is an array in an object named meals {meals:[]}. so to call the data inside i used meals.meals -->
+        <tr *ngFor="let meal of meals.meals"> 
+           
+        <td>{{ meal.strMeal }}</td>
+        <td>{{ meal.strArea }}</td>
+        <td>{{ meal.strCategory }}</td>
+        <td>{{ meal.strInstructions }}</td>
+        <td><img src="{{ meal.strMealThumb }}" width="300"></td>
+    </tr>
+    </tbody>
+</table>
