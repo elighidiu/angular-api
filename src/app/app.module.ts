@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { MealsComponent } from './meals/meals.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReadMorePipePipe } from './read-more-pipe.pipe';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MealsComponent,
-    ReadMorePipePipe
+    ReadMorePipePipe,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

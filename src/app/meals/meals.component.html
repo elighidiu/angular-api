@@ -1,51 +1,52 @@
-<div class="container">
-   <input
-          type="text"
-          (change)="getVal($event)"
-        />
-    <div class="row">
-       
- 
-        <div class="card" style="width: 18rem;" *ngFor="let meal of meals.meals" class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-            <img src="{{ meal.strMealThumb }}" class="card-img-top" alt="..." width="100">
-            <div class="card-body">
-              <h2 class="card-title">{{ meal.strMeal }}</h2>
-              <h5>{{ meal.strArea }} - {{ meal.strCategory }} </h5>
-              <p class="card-text">{{ meal.strInstructions | readMorePipe:30:showAll }}</p>
-           
-            <button (click)="triggerReadMore()" *ngIf="!showAll">Read More</button>
-            <button (click)="triggerReadLess()" *ngIf="showAll">Read Less</button>
-            </div>
-         
+
+
+
+<div class="container my-5">
+    <div class="form-group col-6 my-5">
+    <h2>Show me how to make...</h2>
     
-        </div>
-        
-    </div>  
-<table>
-    <thead>
-        <tr>
-            <th>
-                Meal
-            </th>
-            <th>
-                Origin
-            </th>
-            <th>
-                Category
-            </th>
-            <th>Instructions</th>
-        </tr>
-    </thead>
-    <tbody>
-         <!-- loool this meals.meals took me 2 hours and half!. my data in api is an array in an object named meals {meals:[]}. so to call the data inside i used meals.meals -->
-        <tr *ngFor="let meal of meals.meals"> 
-           
-        <td>{{ meal.strMeal }}</td>
-        <td>{{ meal.strArea }}</td>
-        <td>{{ meal.strCategory }}</td>
-        <td>{{ meal.strInstructions }}</td>
-        <td><img src="{{ meal.strMealThumb }}" width="300"></td>
-    </tr>
-    </tbody>
-</table>
+  <input type="text" (change)="getVal($event)" class="form-control" />
+</div>
+  <div class="row">
+    
+    <!-- loool this meals.meals took me 2 hours and half!. my data in api is an array in an object named meals {meals:[]}. so to call the data inside i used meals.meals -->
+    <div
+      class="card"
+      style="width: 18rem"
+      *ngFor="let meal of meals.meals"
+      class="col-xl-6 col-lg-6 col-md-12 col-sm-12"
+    >
+      <img
+        src="{{ meal.strMealThumb }}"
+        class="card-img-top"
+        alt="..."
+        width="100"
+      />
+      <div class="card-body shadow-sm p-3 mb-5 bg-white rounded">
+        <h2 class="card-title">{{ meal.strMeal }}</h2>
+        <h5>{{ meal.strArea }} - {{ meal.strCategory }}</h5>
+        <p class="card-text">
+          {{ meal.strInstructions | readMorePipe: 30:showAll }}
+        </p>
+
+        <button
+          (click)="triggerReadMore()"
+          *ngIf="!showAll"
+          type="button"
+          class="btn btn-info"
+        >
+          Read More
+        </button>
+        <button
+          (click)="triggerReadLess()"
+          *ngIf="showAll"
+          type="button"
+          class="btn btn-info"
+        >
+          Read Less
+        </button>
+      </div>
+      
+    </div>
+  </div>
 </div>
