@@ -31,5 +31,14 @@ export class MealsComponent implements OnInit {
 
   }
 
- 
+  public showAll: any = false;
+    
+  triggerReadMore() {
+      this.showAll = true;
+  }
+  
+  triggerReadLess() {
+    this.showAll = false;
+}
+
 }

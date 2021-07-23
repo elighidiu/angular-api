@@ -6,19 +6,26 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MealsComponent } from './meals/meals.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReadMorePipePipe } from './read-more-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MealsComponent
+    MealsComponent,
+    ReadMorePipePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
-    FormsModule
+    FormsModule, NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
+
+
